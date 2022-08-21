@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dental.home.app.dao.mysql.gen.system.InstitutionMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.dental.home.app.appObj.system.EntityInstitutionAO">
+                    <id column="id" property="id" />
+                    <result column="institution_name" property="institutionName" />
+                    <result column="institution_type" property="institutionType" />
+                    <result column="institution_linkman" property="institutionLinkman" />
+                    <result column="institution_phone" property="institutionPhone" />
+                    <result column="institution_province" property="institutionProvince" />
+                    <result column="institution_city" property="institutionCity" />
+                    <result column="institution_district" property="institutionDistrict" />
+                    <result column="on_sale" property="onSale" />
+                    <result column="medical_insurance" property="medicalInsurance" />
+                    <result column="create_time" property="createTime" />
+                    <result column="modify_time" property="modifyTime" />
+                    <result column="delete_flag" property="deleteFlag" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, institution_name, institution_type, institution_linkman, institution_phone, institution_province, institution_city, institution_district, on_sale, medical_insurance, create_time, modify_time, delete_flag
+        </sql>
+
+</mapper>

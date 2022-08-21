@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dental.home.app.dao.mysql.gen.system.MenuMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.dental.home.app.appObj.system.EntityMenuAO">
+                    <id column="id" property="id" />
+                    <result column="p_id" property="pId" />
+                    <result column="system_type" property="systemType" />
+                    <result column="name" property="name" />
+                    <result column="title" property="title" />
+                    <result column="icon" property="icon" />
+                    <result column="path" property="path" />
+                    <result column="component" property="component" />
+                    <result column="resource_code" property="resourceCode" />
+                    <result column="source_index" property="sourceIndex" />
+                    <result column="delete_flag" property="deleteFlag" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, p_id, system_type, `name`, title, icon, path, component, resource_code, source_index, delete_flag
+        </sql>
+
+</mapper>

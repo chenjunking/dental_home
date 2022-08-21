@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dental.home.app.dao.mysql.gen.system.UserLoginStatusMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.dental.home.app.appObj.system.EntityUserLoginStatusAO">
+                    <id column="id" property="id" />
+                    <result column="user_account" property="userAccount" />
+                    <result column="user_institution_id" property="userInstitutionId" />
+                    <result column="error_num" property="errorNum" />
+                    <result column="is_locked" property="locked" />
+                    <result column="locked_time" property="lockedTime" />
+                    <result column="create_time" property="createTime" />
+                    <result column="modify_time" property="modifyTime" />
+                    <result column="is_valid" property="valid" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, user_account, user_institution_id, error_num, is_locked, locked_time, create_time, modify_time, is_valid
+        </sql>
+
+</mapper>
