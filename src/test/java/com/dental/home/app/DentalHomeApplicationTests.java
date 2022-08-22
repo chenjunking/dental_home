@@ -31,7 +31,7 @@ class DentalHomeApplicationTests {
 
     String dbUrl = "jdbc:mysql://127.0.0.1:3306/dental_home?characterEncoding=utf8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true";
     String dbUserName = "root";
-    String dbPassWord = "12345678";
+    String dbPassWord = "123456789";
     String dbType = DbType.MYSQL.getDb();
 
     String packageFix = "com.dental.home.app.";
@@ -65,6 +65,19 @@ class DentalHomeApplicationTests {
         };
         genCode(model_name,tables,true);
     }
+
+    //客户相关表
+    @Test
+    void customerGen() throws TemplateException, IOException {
+        String model_name = "system";
+        String[] tables= {
+                "c_customer",
+                "c_sick",
+                "c_customer_sick",
+        };
+        genCode(model_name,tables,true);
+    }
+
 
     /**
      * gen

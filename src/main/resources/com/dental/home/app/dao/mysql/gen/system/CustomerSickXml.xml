@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dental.home.app.dao.mysql.gen.system.CustomerSickMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.dental.home.app.appObj.system.EntityCustomerSickAO">
+                    <id column="id" property="id" />
+                    <result column="customer_id" property="customerId" />
+                    <result column="sick_id" property="sickId" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, customer_id, sick_id
+        </sql>
+
+</mapper>
