@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Api(tags = "pc端客户信息接口")
 @RestController
-@RequestMapping("pc/manage/user")
+@RequestMapping("pc/manage/customer")
 public class ManageCustomerController {
 
     @Autowired
