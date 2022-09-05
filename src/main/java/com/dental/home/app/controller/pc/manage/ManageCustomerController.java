@@ -37,14 +37,29 @@ public class ManageCustomerController {
      */
     @SecretBody
     @ApiOperation("获取客户列表")
-    @PostMapping("loadUser")
-    public Object loadUser(@RequestBody ManageCustomerParam manageCustomerParam){
+    @PostMapping("loadCustomer")
+    public Object loadCustomer(@RequestBody ManageCustomerParam manageCustomerParam){
         manageCustomerParam = null!=manageCustomerParam?manageCustomerParam:ManageCustomerParam.builder().build();
         manageCustomerParam.setInstitutionId(StaticDefine.GEN);
         IPage<EntityCustomerAO> page = manageCustomerParam.pageInit();
         return HttpResult.ok(customerService.getBaseMapper().selectPage(page,customerService.queryLambda(manageCustomerParam)));
     }
 
+
+    /**
+     * 新增客户
+     * @param manageCustomerParam
+     * @return
+     */
+    @SecretBody
+    @ApiOperation("新增客户")
+    @PostMapping("addCustomer")
+    public Object addCustomer(@RequestBody @Validated(BaseParam.add.class)ManageCustomerParam manageCustomerParam){
+        EntityCustomerAO customerAO = new EntityCustomerAO();
+        BeanUtil.copyProperties(manageCustomerParam,customerAO);
+        customerAO.setInstitutionId(StaticDefine.GEN);
+        return customerService.addUser(customerAO);
+    }
 
 
 }

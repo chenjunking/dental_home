@@ -9,6 +9,7 @@ import com.dental.home.app.service.system.CustomerService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dental.home.app.vo.param.customer.ManageCustomerParam;
 import com.dental.home.app.vo.param.user.ManageUserParam;
+import com.dental.home.app.vo.result.HttpResult;
 import org.springframework.stereotype.Service;
 
 /**
@@ -39,7 +40,10 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, EntityCusto
         return lambdaQueryWrapper;
     }
 
-
+    @Override
+    public HttpResult addUser(EntityCustomerAO customerAO) {
+        return null;
+    }
 
 
 }

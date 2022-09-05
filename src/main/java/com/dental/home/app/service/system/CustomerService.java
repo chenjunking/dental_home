@@ -5,6 +5,7 @@ import com.dental.home.app.appObj.system.EntityCustomerAO;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.dental.home.app.vo.param.customer.ManageCustomerParam;
 import com.dental.home.app.vo.param.user.ManageUserParam;
+import com.dental.home.app.vo.result.HttpResult;
 
 /**
 * <p>
@@ -17,4 +18,6 @@ import com.dental.home.app.vo.param.user.ManageUserParam;
 public interface CustomerService extends IService<EntityCustomerAO> {
 
     LambdaQueryWrapper queryLambda(ManageCustomerParam manageCustomerParam);
+
+    HttpResult addUser(EntityCustomerAO customerAO);
 }
