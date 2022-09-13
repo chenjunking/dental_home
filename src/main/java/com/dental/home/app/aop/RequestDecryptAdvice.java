@@ -16,8 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.MethodParameter;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAdapter;
@@ -28,6 +30,7 @@ import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 //解密拦截器
 @Slf4j
@@ -41,9 +44,15 @@ public class RequestDecryptAdvice extends RequestBodyAdviceAdapter {
 
     @Override
     public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
+        HttpHeaders headers = inputMessage.getHeaders();
+        List<String> secretHeaders = headers.get("secret");
+        Boolean secret = false;
+        if(!CollectionUtils.isEmpty(secretHeaders)){
+            secret = secretHeaders.get(0).equals("true");
+        }
         //如果有注解
         boolean supportSafeMessage = supportSecretRequest(parameter);
-        if (supportSafeMessage) {
+        if (secret&&supportSafeMessage) {
             String httpBody;
             InputStream encryptStream = inputMessage.getBody();
             String encryptBody = StreamUtils.copyToString(encryptStream, Charset.defaultCharset());
