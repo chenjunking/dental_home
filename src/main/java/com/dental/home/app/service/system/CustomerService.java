@@ -19,5 +19,7 @@ public interface CustomerService extends IService<EntityCustomerAO> {
 
     LambdaQueryWrapper queryLambda(ManageCustomerParam manageCustomerParam);
 
-    HttpResult addUser(EntityCustomerAO customerAO);
+    HttpResult addCustomer(EntityCustomerAO customerAO);
+
+    HttpResult updateCustomerById(EntityCustomerAO customerAO);
 }

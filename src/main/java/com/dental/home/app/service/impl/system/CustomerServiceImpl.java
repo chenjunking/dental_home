@@ -41,9 +41,12 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, EntityCusto
     }
 
     @Override
-    public HttpResult addUser(EntityCustomerAO customerAO) {
+    public HttpResult addCustomer(EntityCustomerAO customerAO) {
         return null;
     }
 
-
+    @Override
+    public HttpResult updateCustomerById(EntityCustomerAO customerAO) {
+        return null;
+    }
 }

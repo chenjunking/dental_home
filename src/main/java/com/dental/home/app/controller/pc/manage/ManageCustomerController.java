@@ -58,8 +58,22 @@ public class ManageCustomerController {
         EntityCustomerAO customerAO = new EntityCustomerAO();
         BeanUtil.copyProperties(manageCustomerParam,customerAO);
         customerAO.setInstitutionId(StaticDefine.GEN);
-        return customerService.addUser(customerAO);
+        return customerService.addCustomer(customerAO);
     }
 
+
+    /**
+     * 编辑客户
+     * @param manageCustomerParam
+     * @return
+     */
+    @SecretBody
+    @ApiOperation("编辑客户")
+    @PostMapping("updateCustomer")
+    public Object updateCustomer(@RequestBody @Validated(BaseParam.edit.class)ManageCustomerParam manageCustomerParam){
+        EntityCustomerAO customerAO = new EntityCustomerAO();
+        BeanUtil.copyProperties(manageCustomerParam,customerAO);
+        return customerService.updateCustomerById(customerAO);
+    }
 
 }
