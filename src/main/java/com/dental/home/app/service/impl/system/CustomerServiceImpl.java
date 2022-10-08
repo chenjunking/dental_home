@@ -42,7 +42,7 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, EntityCusto
 
     @Override
     public HttpResult addCustomer(EntityCustomerAO customerAO) {
-        return null;
+        return HttpResult.ok(customerAO.insert());
     }
 
     @Override
